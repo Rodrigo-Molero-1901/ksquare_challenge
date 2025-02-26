@@ -1,12 +1,5 @@
-part 'pokemon_details_navigation.dart';
-part 'pokemon_details_overlay.dart';
-
 class PokemonDetailsViewModel {
-  final PokemonDetailsNavigation? navigation;
-  final PokemonDetailsOverlay? overlay;
+  final String pokemonName;
 
-  PokemonDetailsViewModel.fromSuccessState({
-    this.navigation,
-    this.overlay,
-  });
+  PokemonDetailsViewModel.fromSuccessState({required this.pokemonName});
 }

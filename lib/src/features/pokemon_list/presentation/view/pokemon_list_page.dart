@@ -5,23 +5,20 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:injectable/injectable.dart';
 
+import '../../../../router/routes.dart';
 import '../bloc/pokemon_list_cubit.dart';
 import '../bloc/viewmodels/pokemon_list_view_model.dart';
 
-part 'components/pokemon_list_view.dart';
+part 'components/header.dart';
 part 'components/navigation.dart';
-part 'components/overlay.dart';
-part 'pokemon_list_page_params.dart';
+part 'components/pokemons.dart';
+part 'components/view.dart';
 
 @injectable
 class PokemonListPage extends StatefulWidget {
-  final PokemonListPageParams params;
   final PokemonListCubit _cubit;
 
-  const PokemonListPage({
-    required PokemonListCubit cubit,
-    @factoryParam required this.params,
-  }) : _cubit = cubit;
+  const PokemonListPage({required PokemonListCubit cubit}) : _cubit = cubit;
 
   @override
   State<PokemonListPage> createState() => _PokemonListPageState();
@@ -47,19 +44,15 @@ class _PokemonListPageState extends State<PokemonListPage> {
             if (viewModel.navigation != null) {
               viewModel.navigation!.navigate(context);
             }
-
-            if (viewModel.overlay != null) {
-              viewModel.overlay!.showOverlay(context);
-            }
           }
         },
         builder: (context, state) {
           return switch (state) {
             PokemonListInitial() => const SizedBox.shrink(),
             PokemonListMain(:final viewModel) => _PokemonListView(
-                cubit: _cubit,
-                viewModel: viewModel,
-              ),
+              cubit: _cubit,
+              viewModel: viewModel,
+            ),
           };
         },
       ),

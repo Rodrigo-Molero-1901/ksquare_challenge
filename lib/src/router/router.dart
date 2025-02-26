@@ -1,8 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:go_router/go_router.dart';
+import 'package:safe_extensions/safe_extensions.dart';
 
+import '../di/injection.dart';
 import '../features/common/presentation/view/root_scaffold.dart';
 import '../features/common/presentation/view/search_scaffold.dart';
+import '../features/pokemon_details/presentation/view/pokemon_details_page.dart';
+import '../features/pokemon_list/presentation/view/pokemon_list_page.dart';
 import 'routes.dart';
 
 abstract final class AppRouter {
@@ -21,13 +25,24 @@ abstract final class AppRouter {
               GoRoute(
                 path: AppRoutes.pathPokemonList,
                 name: AppRoutes.namePokemonList,
-                builder: (context, state) => Center(child: Text('INICIO')),
+                builder: (context, state) {
+                  return injector<PokemonListPage>();
+                },
                 routes: [
                   GoRoute(
                     path: AppRoutes.pathPokemonDetails,
                     name: AppRoutes.namePokemonDetails,
-                    builder:
-                        (context, state) => Center(child: Text('DETALLES')),
+                    builder: (context, state) {
+                      final pokemonId = state.pathParameters['id'];
+                      final pokemonName = state.extra as String?;
+
+                      final params = PokemonDetailsPageParams(
+                        pokemonId: pokemonId,
+                        pokemonName: pokemonName.safe('Undefined'),
+                      );
+
+                      return injector<PokemonDetailsPage>(param1: params);
+                    },
                   ),
                 ],
               ),
