@@ -10,22 +10,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1bbc16be-0855-4d36-ac7f-184ed94bc5e4" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ksquare_challenge.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ksquare_challenge.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/src/core/api_client/api_manager/api_manager.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/core/api_client/api_manager/api_manager.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/src/core/api_client/error/api_error.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/core/api_client/error/api_error.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/src/core/api_client/utils/connectivity.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/core/api_client/utils/connectivity.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/src/di/injection.config.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/di/injection.config.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/src/di/module.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/di/module.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/src/features/pokemon_details/presentation/bloc/pokemon_details_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/features/pokemon_details/presentation/bloc/pokemon_details_cubit.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/src/features/pokemon_details/presentation/bloc/pokemon_details_state.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/features/pokemon_details/presentation/bloc/pokemon_details_state.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/src/features/pokemon_details/presentation/bloc/viewmodels/pokemon_details_view_model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/features/pokemon_details/presentation/bloc/viewmodels/pokemon_details_view_model.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/src/features/pokemon_details/presentation/view/components/view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/features/pokemon_details/presentation/view/components/view.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/src/features/pokemon_details/presentation/view/pokemon_details_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/features/pokemon_details/presentation/view/pokemon_details_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/src/features/pokemon_list/presentation/bloc/pokemon_list_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/features/pokemon_list/presentation/bloc/pokemon_list_cubit.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/widget_test.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
