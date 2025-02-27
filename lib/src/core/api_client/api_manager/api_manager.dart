@@ -3,7 +3,7 @@ import 'package:dio/dio.dart';
 import '../api/api.dart';
 import 'pokemon_api_manager.dart';
 
-final class ApiManager {
+class ApiManager {
   static const _basePath = r'https://pokeapi.co';
 
   late Dio _dio;

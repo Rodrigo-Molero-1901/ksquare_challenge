@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 
-final class ApiError {
+class ApiError {
   String? errorCode;
   String? errorMessage;
 

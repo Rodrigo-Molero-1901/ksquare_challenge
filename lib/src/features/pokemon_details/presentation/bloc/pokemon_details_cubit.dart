@@ -12,14 +12,18 @@ part 'pokemon_details_state.dart';
 @injectable
 class PokemonDetailsCubit extends Cubit<PokemonDetailsState> {
   final PokemonRepository _pokemonRepository;
+  final Connectivity _connectivity;
 
-  PokemonDetailsCubit({required PokemonRepository pokemonRepository})
-    : _pokemonRepository = pokemonRepository,
-      super(PokemonDetailsLoading());
+  PokemonDetailsCubit({
+    required PokemonRepository pokemonRepository,
+    required Connectivity connectivity,
+  }) : _pokemonRepository = pokemonRepository,
+       _connectivity = connectivity,
+       super(PokemonDetailsInitial());
 
   late String _pokemonId;
 
-  var _pokemonDetailsStatus = PokemonDetailsStatus.loading;
+  var _pokemonDetailsStatus = PokemonDetailsStatus.initial;
   late PokemonDetailsModel _pokemon;
 
   Future<void> initialize({String? pokemonId}) async {
@@ -30,11 +34,12 @@ class PokemonDetailsCubit extends Cubit<PokemonDetailsState> {
 
     _pokemonId = pokemonId!;
 
-    if (!await Connectivity.hasInternetAccess) {
+    if (!await _connectivity.hasInternetAccess()) {
       _emitError(internetError: true);
       return;
     }
 
+    _emitLoading();
     await _getPokemonData();
     _pokemonDetailsStatus == PokemonDetailsStatus.success
         ? _emitMain()
@@ -58,6 +63,10 @@ class PokemonDetailsCubit extends Cubit<PokemonDetailsState> {
     emit(PokemonDetailsError(internetError: internetError));
   }
 
+  void _emitLoading() {
+    emit(PokemonDetailsLoading());
+  }
+
   void _emitMain() {
     emit(
       PokemonDetailsMain(
@@ -70,8 +79,7 @@ class PokemonDetailsCubit extends Cubit<PokemonDetailsState> {
   }
 
   Future<void> onRetry() async {
-    emit(PokemonDetailsLoading());
-    _pokemonDetailsStatus = PokemonDetailsStatus.loading;
+    _pokemonDetailsStatus = PokemonDetailsStatus.initial;
     await initialize();
   }
 }

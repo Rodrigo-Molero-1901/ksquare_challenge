@@ -12,10 +12,14 @@ part 'pokemon_list_state.dart';
 @injectable
 class PokemonListCubit extends Cubit<PokemonListState> {
   final PokemonRepository _pokemonRepository;
+  final Connectivity _connectivity;
 
-  PokemonListCubit({required PokemonRepository pokemonRepository})
-    : _pokemonRepository = pokemonRepository,
-      super(PokemonListLoading());
+  PokemonListCubit({
+    required PokemonRepository pokemonRepository,
+    required Connectivity connectivity,
+  }) : _pokemonRepository = pokemonRepository,
+       _connectivity = connectivity,
+       super(PokemonListLoading());
 
   static const _initialOffset = 0;
   static const _increment = 20;
@@ -27,7 +31,7 @@ class PokemonListCubit extends Cubit<PokemonListState> {
   var _loadingIndicatorStatus = LoadingIndicatorStatus.invisible;
 
   Future<void> initialize() async {
-    if (!await Connectivity.hasInternetAccess) {
+    if (!await _connectivity.hasInternetAccess()) {
       _emitError(internetError: true);
       return;
     }

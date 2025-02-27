@@ -2,6 +2,8 @@ part of 'pokemon_details_cubit.dart';
 
 sealed class PokemonDetailsState {}
 
+class PokemonDetailsInitial extends PokemonDetailsState {}
+
 class PokemonDetailsLoading extends PokemonDetailsState {}
 
 class PokemonDetailsError extends PokemonDetailsState {

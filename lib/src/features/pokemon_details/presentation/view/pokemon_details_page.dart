@@ -52,6 +52,7 @@ class _PokemonDetailsPageState extends State<PokemonDetailsPage> {
             children: [
               IconButton(icon: Icon(Icons.arrow_back), onPressed: context.pop),
               switch (state) {
+                PokemonDetailsInitial() => const SizedBox.shrink(),
                 PokemonDetailsError(:final internetError) => ErrorView(
                   internetError: internetError,
                   onRetry: _cubit.onRetry,

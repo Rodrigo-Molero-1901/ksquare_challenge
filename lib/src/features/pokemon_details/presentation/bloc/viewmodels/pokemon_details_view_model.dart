@@ -4,7 +4,7 @@ import 'package:safe_extensions/safe_extensions.dart';
 import '../../../../common/data/models/pokemon_details.dart';
 import 'pokemon_stat_row_view_model.dart';
 
-enum PokemonDetailsStatus { loading, error, success }
+enum PokemonDetailsStatus { initial, error, success }
 
 class PokemonDetailsViewModel {
   final PokemonDetailsStatus pokemonDetailsStatus;
@@ -31,4 +31,8 @@ class PokemonDetailsViewModel {
            pokemon.stats.safeValue
                .map(PokemonStatRowViewModel.fromModel)
                .toList();
+
+  bool get shouldShowPokemonImage {
+    return imageUrl.isNotEmpty && shinyImageUrl.isNotEmpty;
+  }
 }
