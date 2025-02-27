@@ -22,6 +22,11 @@ class PokeApp extends StatelessWidget {
     return MaterialApp.router(
       title: 'Poke App',
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        useMaterial3: true,
+        colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.red),
+        appBarTheme: AppBarTheme(color: Colors.red),
+      ),
       routerConfig: AppRouter.router,
     );
   }

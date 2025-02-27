@@ -1,17 +1,23 @@
 // ignore_for_file: use_key_in_widget_constructors
 
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:injectable/injectable.dart';
 
+import '../../../../core/shared/widgets/shimmer/shimmer_container.dart';
 import '../../../../router/routes.dart';
+import '../../../common/presentation/view/error_view.dart';
 import '../bloc/pokemon_list_cubit.dart';
 import '../bloc/viewmodels/pokemon_list_view_model.dart';
+import '../bloc/viewmodels/pokemon_row_view_model.dart';
 
 part 'components/header.dart';
+part 'components/loading_view.dart';
 part 'components/navigation.dart';
-part 'components/pokemons.dart';
+part 'components/pokemon/pokemon_row.dart';
+part 'components/pokemon/pokemons.dart';
 part 'components/view.dart';
 
 @injectable
@@ -48,7 +54,11 @@ class _PokemonListPageState extends State<PokemonListPage> {
         },
         builder: (context, state) {
           return switch (state) {
-            PokemonListInitial() => const SizedBox.shrink(),
+            PokemonListError(:final internetError) => ErrorView(
+              internetError: internetError,
+              onRetry: _cubit.onRetry,
+            ),
+            PokemonListLoading() => const _PokemonListLoadingView(),
             PokemonListMain(:final viewModel) => _PokemonListView(
               cubit: _cubit,
               viewModel: viewModel,

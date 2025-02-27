@@ -2,6 +2,7 @@ import 'package:fpdart/fpdart.dart';
 
 import '../api/api.dart';
 import '../error/api_error.dart';
+import '../models/pokemon_details_response.dart';
 import '../models/pokemon_row_response.dart';
 import '../utils/api_utils.dart';
 
@@ -18,10 +19,10 @@ class PokemonApiManager {
     );
   }
 
-  Future<Either<ApiError, dynamic>> getPokemonDetails({
+  Future<Either<ApiError, PokemonDetailsResponseModel>> getPokemonDetails({
     required String id,
   }) async {
-    return ApiUtils.handleApiCall(
+    return ApiUtils.handleApiCall<PokemonDetailsResponseModel>(
       () => _api.pokemonApi.getPokemonDetails(id: id),
     );
   }

@@ -9,7 +9,9 @@ class RootScaffold extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Poke App')),
+      appBar: AppBar(
+        title: Text('Poke App', style: TextStyle(color: Colors.white)),
+      ),
       body: navigationShell,
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: navigationShell.currentIndex,

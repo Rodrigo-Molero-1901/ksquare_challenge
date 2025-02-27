@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:go_router/go_router.dart';
-import 'package:safe_extensions/safe_extensions.dart';
 
 import '../di/injection.dart';
 import '../features/common/presentation/view/root_scaffold.dart';
@@ -34,11 +33,9 @@ abstract final class AppRouter {
                     name: AppRoutes.namePokemonDetails,
                     builder: (context, state) {
                       final pokemonId = state.pathParameters['id'];
-                      final pokemonName = state.extra as String?;
 
                       final params = PokemonDetailsPageParams(
                         pokemonId: pokemonId,
-                        pokemonName: pokemonName.safe('Undefined'),
                       );
 
                       return injector<PokemonDetailsPage>(param1: params);
